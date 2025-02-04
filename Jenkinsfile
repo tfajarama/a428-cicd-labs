@@ -12,7 +12,9 @@ node {
         stage('Deploy') {
             sh './jenkins/scripts/deliver.sh'
 //            input message: 'Sudah selesai menggunakan React App? (Klik "Proceed" untuk mengakhiri)'
-            echo 'Application is running. It will automatically stop after 1 minute.'
+            echo 'Application is running in http://localhost:3000. Waiting for 1 minute...'
+            sleep 60  // Jeda aplikasi selama 1 menit setelah berhasil di deploy
+            echo '1 minute has passed. Proceeding to terminate and finish the pipeliine...'
             sh './jenkins/scripts/kill.sh'
         }
     }
