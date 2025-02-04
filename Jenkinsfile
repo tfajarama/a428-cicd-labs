@@ -12,6 +12,7 @@ node {
         stage('Deploy') {
             sh './jenkins/scripts/deliver.sh'
 //            input message: 'Sudah selesai menggunakan React App? (Klik "Proceed" untuk mengakhiri)'
+            echo 'Application is running. It will automatically stop after 1 minute.'
             sh './jenkins/scripts/kill.sh'
         }
     }
